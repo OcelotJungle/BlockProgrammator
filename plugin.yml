@@ -1,0 +1,10 @@
+name: BlockProgrammer
+main: ru.ocelotjungle.blockprogrammer.Main
+version: 1
+description: Programming custom block behavior
+commands:
+  blockprogrammer:
+    description: main command
+    usage: /blockprogrammer help
+    permission: op
+    aliases: [program, prog]
