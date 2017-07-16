@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import ru.ocelotjungle.blockprogrammer.commands.CommandManager;
 import ru.ocelotjungle.blockprogrammer.events.EventManager;
 
 public class BlockProgrammer extends JavaPlugin {
@@ -14,8 +15,9 @@ public class BlockProgrammer extends JavaPlugin {
 	private BlockProgrammer blockProgrammer;
 	private ConfigManager configManager;
 	private DatabaseManager databaseManager;
-	private EventManager eventManager;
 	private LogManager logManager;
+	private EventManager eventManager;
+	private CommandManager commandManager;
 	
 	public BlockProgrammer() throws SQLException {
 		getLogger().setLevel(Level.OFF);
@@ -24,8 +26,9 @@ public class BlockProgrammer extends JavaPlugin {
 		blockProgrammer = this;
 		configManager = new ConfigManager(this);
 		databaseManager = new DatabaseManager(this);
-		eventManager = new EventManager(this);
 		logManager = new LogManager(this);
+		eventManager = new EventManager(this);
+		commandManager = new CommandManager(this);
 	}
 	
 	public void onEnable() {
@@ -51,12 +54,16 @@ public class BlockProgrammer extends JavaPlugin {
 	public DatabaseManager getDatabaseManager() {
 		return databaseManager;
 	}
+
+	public LogManager getLogManager() {
+		return logManager;
+	}
 	
 	public EventManager getEventManager() {
 		return eventManager;
 	}
 	
-	public LogManager getLogManager() {
-		return logManager;
+	public CommandManager getCommandManager() {
+		return commandManager;
 	}
 }
