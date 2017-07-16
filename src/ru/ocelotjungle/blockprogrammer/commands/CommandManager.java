@@ -4,11 +4,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-import ru.ocelotjungle.blockprogrammer.Main;
+import ru.ocelotjungle.blockprogrammer.BlockProgrammer;
 
 public class CommandManager implements CommandExecutor {
 	
-	public CommandManager(Main plugin) {
+	public CommandManager(BlockProgrammer plugin) {
 		plugin.getCommand("blockprogrammer").setExecutor(this);
 	}
 

@@ -4,7 +4,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public class OnStepEvent {
 
-	public static boolean execute(PlayerMoveEvent evt) {
+	public static void execute(PlayerMoveEvent evt) {
 		
 		/*BlockVector oldPos = evt.getFrom().toVector().toBlockVector(),
 					newPos = evt.getTo().toVector().toBlockVector();
@@ -45,8 +45,5 @@ public class OnStepEvent {
 			Logger.log("NOT CONTAINS");
 		}*/
 		
-		
-		return true;
 	}
-
 }

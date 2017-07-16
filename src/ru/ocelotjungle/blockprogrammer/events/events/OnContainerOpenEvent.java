@@ -5,26 +5,22 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.InventoryHolder;
 
-import ru.ocelotjungle.blockprogrammer.Logger;
-
-public class OnOpenEvent {
+public class OnContainerOpenEvent {
 	
-	public static boolean execute(PlayerInteractEvent evt) {
+	public static void execute(PlayerInteractEvent evt) {
 		
 		if (evt.getAction() == Action.RIGHT_CLICK_BLOCK && evt.getClickedBlock().getState() instanceof InventoryHolder) {
 			
 			Lockable lockable = (Lockable) evt.getClickedBlock().getState();
-			String itemName = evt.getItem()!=null ? evt.getItem().getItemMeta().getDisplayName() : "hand",
+			String itemName = evt.getItem() != null ? evt.getItem().getItemMeta().getDisplayName() : "hand",
 					lock = lockable.getLock();
 			
 			if (!lockable.isLocked() || (itemName != null && itemName.equals(lock))) {
-				Logger.log("Container opened");
+				
 			} else {
-				Logger.log("Container not opened");
+				
 			}
 				
 		}
-		
-		return true;
 	}
 }
