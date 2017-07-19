@@ -4,8 +4,13 @@ import org.bukkit.event.block.BlockRedstoneEvent;
 
 public class OnRedstoneEvent {
 
-	public static void execute(BlockRedstoneEvent evt) {
+	public static void execute(BlockPoweredByRedstoneEvent evt) {
 		
 	}
-
+	
+	public static class BlockPoweredByRedstoneEvent {
+		public static void execute(BlockRedstoneEvent evt) {
+			
+		}
+	}
 }

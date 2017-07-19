@@ -10,9 +10,9 @@ import ru.ocelotjungle.blockprogrammer.commands.CommandManager;
 import ru.ocelotjungle.blockprogrammer.events.EventManager;
 
 public class BlockProgrammer extends JavaPlugin {
-	
+
+	public static BlockProgrammer plugin;
 	private Server minecraftServer;
-	private BlockProgrammer blockProgrammer;
 	private ConfigManager configManager;
 	private DatabaseManager databaseManager;
 	private LogManager logManager;
@@ -21,9 +21,9 @@ public class BlockProgrammer extends JavaPlugin {
 	
 	public BlockProgrammer() throws SQLException {
 		getLogger().setLevel(Level.OFF);
-		
+
+		plugin = this;
 		minecraftServer = getServer();
-		blockProgrammer = this;
 		configManager = new ConfigManager(this);
 		databaseManager = new DatabaseManager(this);
 		logManager = new LogManager(this);
@@ -39,12 +39,12 @@ public class BlockProgrammer extends JavaPlugin {
 		getLogManager().log("[BlockProgrammer] Disabled");
 	}
 	
-	public Server getBukkitServer() {
-		return minecraftServer;
+	public BlockProgrammer getPlugin() {
+		return plugin;
 	}
 	
-	public BlockProgrammer getPlugin() {
-		return blockProgrammer;
+	public Server getBukkitServer() {
+		return minecraftServer;
 	}
 	
 	public ConfigManager getConfigManager() {

@@ -8,7 +8,6 @@ import org.bukkit.inventory.InventoryHolder;
 public class OnContainerOpenEvent {
 	
 	public static void execute(PlayerInteractEvent evt) {
-		
 		if (evt.getAction() == Action.RIGHT_CLICK_BLOCK && evt.getClickedBlock().getState() instanceof InventoryHolder) {
 			
 			Lockable lockable = (Lockable) evt.getClickedBlock().getState();
@@ -17,10 +16,7 @@ public class OnContainerOpenEvent {
 			
 			if (!lockable.isLocked() || (itemName != null && itemName.equals(lock))) {
 				
-			} else {
-				
 			}
-				
 		}
 	}
 }
