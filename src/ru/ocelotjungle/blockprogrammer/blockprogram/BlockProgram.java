@@ -1,17 +1,21 @@
 package ru.ocelotjungle.blockprogrammer.blockprogram;
 
+import org.bukkit.Location;
+
 import ru.ocelotjungle.blockprogrammer.actions.ActionManager.ActionType;
 
 public class BlockProgram {
 	
+	private Location location;
 	private String commandExecution, cycledFormChanging, randomFormChanging, randomFormChangingWithRepeats;
 	private Boolean deleteProgram;
 	
-	public BlockProgram() {
-		this(null, null, null, null, false);
+	public BlockProgram(Location location) {
+		this(location, null, null, null, null, false);
 	}
 	
-	public BlockProgram(String commandExecution, String cycledFormChanging, String randomFormChanging, String randomFormChangingWithRepeats, Boolean deleteProgram) {
+	public BlockProgram(Location location, String commandExecution, String cycledFormChanging, String randomFormChanging, String randomFormChangingWithRepeats, Boolean deleteProgram) {
+		this.location = location;
 		setActionValue(ActionType.commandExecution, commandExecution);
 		setActionValue(ActionType.cycledFormChanging, cycledFormChanging);
 		setActionValue(ActionType.randomFormChanging, randomFormChanging);
@@ -48,5 +52,9 @@ public class BlockProgram {
 				deleteProgram = (Boolean)value;
 				break;
 		}
+	}
+	
+	public Location getLocation() {
+		return location;
 	}
 }

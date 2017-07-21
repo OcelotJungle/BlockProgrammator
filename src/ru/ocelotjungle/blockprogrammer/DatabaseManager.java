@@ -24,6 +24,7 @@ public class DatabaseManager {
 	
 	public DatabaseManager(BlockProgrammer plugin) throws SQLException {
 		this.plugin = plugin;
+		tablePrefix = plugin.getConfigManager().getTablePrefix();
 	}
 	
 	public void initializeDatabase() throws SQLException {
@@ -73,13 +74,13 @@ public class DatabaseManager {
 		resultSet.close();
 	}
 	
-	public BlockProgram getBlockProgram(EventType eventType, Location location) throws SQLException {
+	public BlockProgram getBlockProgram(Location location, EventType eventType) throws SQLException {
 		
 		resultSet = statement.executeQuery("SELECT 'CE', 'CFC', 'RFC', 'RFCWR', 'DP' from '" + tablePrefix + "_" + eventType.name() + "' "
 				+ "WHERE " + getBlockInfo(location) + ";");
 		
-		return new BlockProgram(resultSet.getString("CE"), resultSet.getString("CFC"), resultSet.getString("RFC"),
-								resultSet.getString("RFCWR"), resultSet.getBoolean("DP"));
+		return new BlockProgram(location, resultSet.getString("CE"), resultSet.getString("CFC"), 
+								resultSet.getString("RFC"), resultSet.getString("RFCWR"), resultSet.getBoolean("DP"));
 		
 	}
 	

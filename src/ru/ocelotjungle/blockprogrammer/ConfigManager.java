@@ -30,4 +30,8 @@ public class ConfigManager {
 		}
 		mainConfig = YamlConfiguration.loadConfiguration(configFile);
 	}
+	
+	public String getTablePrefix() {
+		return mainConfig.getString("table_prefix");
+	}
 }
