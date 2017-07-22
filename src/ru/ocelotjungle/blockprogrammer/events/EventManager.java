@@ -40,27 +40,27 @@ public class EventManager implements Listener {
 	}
 	
 	@EventHandler
-	public void onBreak(BlockBreakEvent evt) {
+	public void onBreak(BlockBreakEvent evt) throws SQLException {
 		OnBreakEvent.execute(evt);
 	}
 	
 	@EventHandler
-	public void onClick(PlayerInteractEvent evt) {
+	public void onClick(PlayerInteractEvent evt) throws SQLException {
 		OnClickEvent.execute(evt);
 	}
 	
 	@EventHandler
-	public void onMove(BlockPistonExtendEvent evt) {
+	public void onMoveByPiston(BlockPistonExtendEvent evt) throws SQLException {
 		OnMoveByPistonEvent.execute(evt);
 	}
 	
 	@EventHandler
-	public void onMove(BlockPistonRetractEvent evt) {
+	public void onMoveByPiston(BlockPistonRetractEvent evt) throws SQLException {
 		OnMoveByPistonEvent.execute(evt);
 	}
 	
 	@EventHandler
-	public void onOpen(PlayerInteractEvent evt) {
+	public void onContainerOpen(PlayerInteractEvent evt) throws SQLException {
 		OnContainerOpenEvent.execute(evt);
 	}
 	
@@ -70,7 +70,7 @@ public class EventManager implements Listener {
 	}
 	
 	@EventHandler
-	public void onStep(PlayerMoveEvent evt) {
+	public void onStep(PlayerMoveEvent evt) throws SQLException {
 		OnStepEvent.execute(evt);
 	}
 	

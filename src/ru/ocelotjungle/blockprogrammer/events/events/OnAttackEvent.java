@@ -14,7 +14,9 @@ public class OnAttackEvent {
 	public static void execute(PlayerInteractEvent evt) throws SQLException {
 		if (evt.getAction() == Action.LEFT_CLICK_BLOCK) {
 			BlockProgram blockProgram = BlockProgrammer.plugin.getDatabaseManager().getBlockProgram(evt.getClickedBlock().getLocation(), EventType.onAttack);
-			BlockProgrammer.plugin.getActionManager().execute(blockProgram);
+			if(blockProgram != null) {
+				BlockProgrammer.plugin.getActionManager().execute(blockProgram);
+			}
 		}
 	}
 }

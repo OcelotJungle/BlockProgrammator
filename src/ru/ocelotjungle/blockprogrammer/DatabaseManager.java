@@ -64,10 +64,6 @@ public class DatabaseManager {
 		}
 	}
 	
-	/*public void saveDatabase() throws SQLException {
-		connection.commit();
-	}*/
-	
 	public void closeDatabase() throws SQLException {
 		connection.close();
 		statement.close();
